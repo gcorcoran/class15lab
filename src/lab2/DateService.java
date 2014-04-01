@@ -6,7 +6,12 @@
 
 package lab2;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -21,12 +26,23 @@ public class DateService {
     to a Calendar object. Test both methods by creating a Startup class and
     outputting the results
     */
-    public Date convertStringToDate(String string){
-        String tempString = string;
+    public final Date convertStringToDate(String dateString){
+      Date date = new Date();
+      
+      return date;
+    }
+    
+    public final Calendar convertStringToCalendar(String dateString){
         
+        Calendar cal = new GregorianCalendar();
+      
+      try{
+      SimpleDateFormat sdf = new SimpleDateFormat("MMMM d, yyyy hh:mm aa");
+      cal.setTime(sdf.parse(dateString));
+      }catch(ParseException pe){
+          JOptionPane.showMessageDialog(null, pe.getMessage());
+      }
+        return cal;
         
-        
-        Date temp = new Date();
-        return temp;
     }
 }

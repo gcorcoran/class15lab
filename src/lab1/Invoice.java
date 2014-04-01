@@ -24,23 +24,23 @@ public class Invoice {
         this.invoiceDate = Calendar.getInstance();
     }
 
-    public Calendar getInvoiceDate() {
+    public final Calendar getInvoiceDate() {
         return invoiceDate;
     }
 
-    public void setInvoiceDate(Calendar invoiceDate) {
+    public final void setInvoiceDate(Calendar invoiceDate) {
         this.invoiceDate = invoiceDate;
     }
 
-    public int getGracePeriod() {
+    public final int getGracePeriod() {
         return gracePeriod;
     }
 
-    public void setGracePeriod(int gracePeriod) {
+    public final void setGracePeriod(int gracePeriod) {
         this.gracePeriod = gracePeriod;
     }
     
-    public Calendar getDueDate(){
+    public final Calendar getDueDate(){
         if(dueDate==null){
             dueDate = invoiceDate;
             dueDate.add(Calendar.DATE, gracePeriod);
@@ -48,7 +48,7 @@ public class Invoice {
         return dueDate;
     }
     
-    public String getDueDateAsString(){
+    public final String getDueDateAsString(){
         String format = "MM/dd/yyyy";
         SimpleDateFormat sdf = new SimpleDateFormat(format);
         Date temp = new Date();
